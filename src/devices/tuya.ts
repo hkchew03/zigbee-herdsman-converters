@@ -30459,4 +30459,77 @@ export const definitions: DefinitionWithExtend[] = [
             }),
         ],
     },
+    {
+    fingerprint: tuya.fingerprint("TS0601", ["_TZE28C1000000_yxun3xvr"]),
+    model: 'TS0601',
+    vendor: '_TZE28C1000000_yxun3xvr',
+    description: '1-gang switch',
+    extend: [m.identify()],
+    "description": "TS0601_1-Gang_switch",
+    "exposes": [
+        {
+            "endpoint": "l1",
+            "features": [
+                {
+                    "access": 7,
+                    "description": "On/off state of the switch",
+                    "endpoint": "l1",
+                    "label": "State",
+                    "name": "state",
+                    "property": "state_l1",
+                    "type": "binary",
+                    "value_off": "OFF",
+                    "value_on": "ON",
+                    "value_toggle": "TOGGLE"
+                }
+            ],
+            "type": "switch"
+        },
+        {
+            "access": 3,
+            "description": "Relay Status",
+            "label": "Relay status",
+            "name": "relay_status",
+            "property": "relay_status",
+            "type": "enum",
+            "values": [
+                "off",
+                "on",
+                "memory"
+            ]
+        },
+        {
+            "access": 1,
+            "category": "diagnostic",
+            "description": "Link quality (signal strength)",
+            "label": "Linkquality",
+            "name": "linkquality",
+            "property": "linkquality",
+            "type": "numeric",
+            "unit": "lqi",
+            "value_max": 255,
+            "value_min": 0
+        }
+    ],
+    "model": "TUYA",
+    "options": [
+        {
+            "access": 2,
+            "description": "Reply to Tuya-specific time synchronization requests: \"1970\" - Reply with seconds since 1970/01/01 (recommended, should stop the device from asking), \"2000\" - Reply with seconds since 2000/01/01 (use if the weekday is wrong with 1970), \"off\" - Don't reply (use if replying causes too much traffic). Default for this device: \"off\"",
+            "label": "Time start",
+            "name": "time_start",
+            "property": "time_start",
+            "type": "enum",
+            "values": [
+                "1970",
+                "2000",
+                "off"
+            ]
+        }
+    ],
+    "source": "external",
+    "supports_ota": false,
+    "vendor": "Tuya",
+    "version": "0.0.0"
+    }
 ];
